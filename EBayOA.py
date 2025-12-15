@@ -36,3 +36,6 @@ def prefix_reduce(nums):
 
     return ret
     #I got this question 160/300
+
+## Question #3: Given an array of pairs of (Index, Color), return the number of consecutive pairs of colors. 
+## Question #4: Given an array of letters (A, B, C, D, E) that have very specific shapes in a 2d array, return the 2d map filled with them, where each of the indexes counts something(I forget what it exactly was)
