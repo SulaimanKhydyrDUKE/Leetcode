@@ -31,4 +31,53 @@ class Solution(object):
         
         return list(ind)
 
+# Solution that works, but is extremely slow = 9 seconds, beats only 5% of submissions
+class Solution(object):
+    def findSubstring(self, s, words):
+        """
+        :type s: str
+        :type words: List[str]
+        :rtype: List[int]
+        """
+        map = {}
+        for i in words:
+            if i in map:
+                map[i] = map[i]+1
+            else:
+                map[i] = 1
+        word = len(words[0])
+        siz = word*len(words)
+        l, r = 0, siz-1
+        ret = set()
+        
+        while r<len(s):
+            temp_map = map.copy()
+            window = s[l:r+1]
+     
+            count = 0
+            t, p = 0, word
+       
+            while p<r+2:
+                wee = window[t:p]
+                if wee in temp_map and temp_map[wee] != 0:
+                
+                    count+=1
+                    temp_map[wee]-=1
+                    t+=word
+                    p+=word
+                else:
+                    t+=word
+                    p+=word
+                    break
+            if count==len(words):
+                ret.add(l)
+            count = 0
+            l+=1
+            r+=1
+            
+            
+        return list(ret)
+
+        
+
         
